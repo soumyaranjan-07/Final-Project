@@ -1,0 +1,31 @@
+<% content_for :title, "Show Courses | iSchool" %>
+<%= render 'shared/admin_navbar' %>
+<div class="form-container"style="margin-top:45px;">
+  <div class="form-wrap">
+    <div class="card" style="width: 23rem;">
+      <%= image_tag @course.course_image %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @course.name %></h5>
+        <p class="card-text"><%= @course.description %></p>
+        <p>
+          <strong>Price:</strong>
+          <%= @course.price %>
+        </p>
+        <p>
+          <strong>Duration:</strong>
+          <%= @course.duration %> hours
+        </p>
+        <p>
+          <% @course.lessions.each do |i|%>
+            lession ID : <%= i.id %><br>
+            lession Name : <%= i.l_name %>
+            <hr>  
+          <%end%>
+        </p>
+        <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_course_path(@course) %></button>&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-warning"><%= link_to 'Back', courses_path %></button>
+      </div>
+    </div>
+  </div>
+</div>
+

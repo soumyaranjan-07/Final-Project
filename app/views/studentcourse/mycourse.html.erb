@@ -1,0 +1,106 @@
+<% content_for :title, "My Courses | iSchool" %>
+<%= render 'shared/navbar' %>
+<div class="container-fluid">
+<div class="row">
+  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="position-sticky pt-3 sidebar-sticky">
+      <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= image_tag current_student.avatar_image, class:"rounded wh1"%>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link text-secondary" aria-current="page" href="/student/dashboard">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home align-text-bottom" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link text-secondary" aria-current="page" href="/students/edit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
+          <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/></svg>
+          Edit Profile
+        </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="/studentcourse/mycourse">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file align-text-bottom" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+            MyCourses
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-secondary" href="/feedbacks/new">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+            Feedback
+          </a>
+        </li>
+    
+        <li class="nav-item">
+        <% if student_signed_in? %>
+            <div class="nav-link text-secondary" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-text-bottom" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <%= link_to "Student Logout", destroy_student_session_path, method: :delete, :class => 'navbar-link text-muted'  %>
+          </div>
+        <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <!-- Section: Design Block -->
+    <section>
+		<div class="container">
+			<!-- Title -->
+			<div class="row mb-4 mycourse_head">
+				<div class="col-lg-8 mx-auto text-center">
+					<h2 class="fs-1 ">Your Courses</h2>
+					
+				</div>
+			</div>
+
+		
+
+			<div class="tab-content" id="course-pills-tabContent">
+				<!-- Content START -->
+				<div class="tab-pane fade active show" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
+					<div class="row g-4">
+					<% @course_all.each do |c| %>
+						<!-- Card item START -->
+						<div class="col-sm-6 col-lg-4 col-xl-3">
+							<div class="card shadow h-100">
+								<%= image_tag c.course_image, {class:"card-img-top"}%>
+								<!-- Card body -->
+								<div class="card-body pb-0">
+									<!-- Title -->
+									<h5 class="card-title fw-normal"><%= c.name %></a></h5>
+									<p class="mb-2 text-truncate-2"><%= c.description %></p>
+									
+								</div>
+								<div class="card-footer">
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="btn-group " style="margin: 3px 3px 0px 50px;">
+										<button type="button" class="btn btn-success btn-lg "><%= link_to 'Watch Lessons',studentcourse_lesson_path(:cr_id => c), class: "text-white" %></button>
+									</div>
+									
+								</div>
+								</div>
+							</div>
+						</div>
+					<% end %>	
+					</div> 
+				</div>
+
+				
+			</div>
+		</div>
+
+	</section>
+
+    
+  </main>
+</div>
+</div>
+

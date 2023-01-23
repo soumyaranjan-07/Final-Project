@@ -1,0 +1,50 @@
+<div class="form-container">
+  <div class="form-wrap">
+    <div class="card">
+      <div class="card-body">
+        <%= form_with(model: course, local: true) do |form| %>
+          <% if course.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+              <ul>
+                <% course.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="mb-3">
+            <%= form.label :name , { class: "form-label"}%>
+            <%= form.text_field :name,  { class: "form-control", placeholder: "Enter Course Name" } %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :description , { class: "form-label"}%>
+            <%= form.text_area :description ,  { class: "form-control", placeholder: "Enter Description" }%>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :price , { class: "form-label"}%>
+            <%= form.text_field :price,  { class: "form-control", placeholder: "Enter Price" } %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :duration , { class: "form-label"}%>
+            <%= form.number_field :duration ,  { class: "form-control", placeholder: "Enter Duration" } %>
+          </div>
+          <div class="mb-3">
+          <%= form.label :course_image , { class: "form-label"}%>
+          <%= form.file_field :course_image ,  { class: "form-control" }%>
+          </div>
+
+          <div class="mb-3">
+            <%= form.submit "Submit" ,{ class: "btn btn-primary" }%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+</div>
+

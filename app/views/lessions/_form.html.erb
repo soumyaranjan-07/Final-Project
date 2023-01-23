@@ -1,0 +1,49 @@
+
+
+
+<div class="form-container">
+  <div class="form-wrap">
+    <div class="card">
+      <div class="card-body">
+        <%= form_with(model: lession, local: true) do |form| %>
+          <% if lession.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(lession.errors.count, "error") %> prohibited this lession from being saved:</h2>
+
+              <ul>
+                <% lession.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="mb-3">
+            <%= form.label :l_name , "Lesson Name",{ class: "form-label"}%>
+            <%= form.text_field :l_name,  { class: "form-control", placeholder: "Enter Lession Name" } %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :l_desc , "Lesson Description",{ class: "form-label"}%>
+            <%= form.text_area :l_desc ,  { class: "form-control", placeholder: "Enter Description" }%>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :course_id , { class: "form-label"}%>
+            <%= form.text_field :course_id,  { class: "form-control", placeholder: "Enter Course Id" } %>
+          </div>
+          
+          <div class="mb-3">
+          <%= form.label :lession_video ,"Lesson Video", { class: "form-label"}%>
+          <%= form.file_field :lession_video ,  { class: "form-control" }%>
+          </div>
+
+          <div class="mb-3">
+            <%= form.submit "Submit" ,{ class: "btn btn-primary" }%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  
+</div>

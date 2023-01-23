@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-light fixed-top shadow-sm ">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="/assets/logo.png" alt="" height="50px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/dashboard">Home</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/adminorderdetail/orderdetail">OrderDetails</a>
+          </li>
+        
+          
+        </ul>
+        
+        
+       
+
+ 
+
+        <% if session[:admin] %>
+          <div class="dropdown text-end avatar1" >
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/assets/admin.png" alt="mdo" width="45" height="45" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small" style="">
+              <li><a class="dropdown-item avatar1-text" href="/dashboard">Dashboard</a></li>
+              <li><a class="dropdown-item avatar1-text" href="/courses">Courses</a></li>
+              <li><a class="dropdown-item avatar1-text" href="/lessions">Lessons</a></li>
+              <li><a class="dropdown-item avatar1-text" href="/adminorderdetail/orderdetail">Order Details</a></li>
+              <li><a class="dropdown-item avatar1-text" href="/adfeedback/feedback">Feedback</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item avatar1-text" href="/admin/logout">Logout</a></li>
+              
+            </ul>
+          </div>
+        <% else %>
+          <div class="dropdown text-end avatar1">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/assets/Avatar1.png" alt="mdo" width="45" height="45" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small" style="">
+              
+              <li><a class="dropdown-item avatar1-text" href="/admin/login">Login</a></li>
+            </ul>
+          </div>
+        <% end %>
+
+
+        
+        
+      </div>
+      </div>
+    </nav>

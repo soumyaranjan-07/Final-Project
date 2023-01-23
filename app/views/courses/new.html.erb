@@ -1,0 +1,10 @@
+<% content_for :title, "Add New Course | iSchool" %>
+<%= render 'shared/admin_navbar' %>
+<div class="title-heading">New Course</div>
+<%= render 'form', course: @course %>
+
+<div class="form-container">
+    <div class="form-wrap">
+        <button type="button" class="btn btn-outline-warning"><%= link_to 'Back to Home', courses_path %></button>
+    </div>
+</div>

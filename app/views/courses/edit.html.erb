@@ -1,0 +1,10 @@
+<% content_for :title, "Edit Course | iSchool" %>
+<%= render 'shared/admin_navbar' %>
+<div class="title-heading"style="margin-top:45px;">Editing Course</div>
+<%= render 'form', course: @course %>
+<div class="form-container">
+    <div class="form-wrap">
+        <button type="button" class="btn btn-outline-warning"><%= link_to 'Show', @course %></button>
+        <button type="button" class="btn btn-outline-warning"><%= link_to 'Back to Home', courses_path %></button>
+    </div>
+</div>

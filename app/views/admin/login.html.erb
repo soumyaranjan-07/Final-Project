@@ -1,0 +1,28 @@
+<% content_for :title, "Admin Login | iSchool" %>
+<%= render 'shared/admin_navbar' %>
+<div class="container col-xl-10 col-xxl-8 px-4 py-5 mycss" style="margin-top:50px;">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Admin Login form</h1>
+        <p class="col-lg-10 fs-4">Not "Just An Admin!"</br>
+        <i class="text-muted">Discover the Respect, Value and Power of the Administrative Profession</i></p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <%= form_with url: "/admin/login",class:"p-4 p-md-5 border rounded-3 bg-light", method: :post do |form| %>
+          <div class="form-floating mb-3">
+            <%= form.text_field :user_id ,  { class: "form-control" , placeholder: "Admin Id"} %>
+            <%= label_tag(:user_id, "Admin Id") %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= form.password_field :password, { class: "form-control", placeholder: "Password"} %>
+            <%= label_tag(:password, "Password") %>
+          </div>
+          <div class="checkbox mb-3">
+            <%= form.submit "Admin Login",{ class: "w-100 btn btn-lg btn-primary" }  %>
+          </div>
+          <hr class="my-4">
+          <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+        <% end %>
+      </div>
+    </div>
+  </div>

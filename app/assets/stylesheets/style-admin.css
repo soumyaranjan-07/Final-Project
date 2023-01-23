@@ -1,0 +1,49 @@
+.table_div{
+    padding: 8px 0px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+th,td{
+    padding: 8px;
+    text-align: left;
+    border: 2px solid rgb(119, 119, 119);
+}
+th{
+    background-color: #828282;
+
+}
+tr:hover td{
+    background-color: #d1d0d0;
+}
+.form-container{
+    margin: 3px 10px;
+}
+.form-container > .form-wrap{
+    padding: 5px 297px;
+}
+.card {
+    
+    background: #ffffff4d;
+}
+.title-heading {
+    text-align: center;
+    padding-top: 6px;
+    font-size: 38px;
+    font-family: fangsong;
+    color: #0094a7b3;
+    background: #f0efef;
+}
+body{
+    background-color: rgb(255, 255, 255);
+}
+.mycss{
+    background-color: #2196f347;
+    border-radius: 19px;
+}

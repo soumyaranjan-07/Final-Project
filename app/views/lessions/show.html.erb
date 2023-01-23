@@ -1,0 +1,21 @@
+<% content_for :title, "Show Lesson | iSchool" %>
+<%= render 'shared/admin_navbar' %>
+<div class="form-container" style="margin-top:45px;">
+  <div class="form-wrap">
+    <div class="card" style="width: 27rem;">
+      <video controls>
+        <source src="<%= url_for(@lession.lession_video) %>">
+      </video>
+      <div class="card-body">
+        <h5 class="card-title"><%= @lession.l_name %></h5>
+        <p class="card-text"><%= @lession.l_desc %></p>
+        <p>
+          <strong>course Id:</strong>
+          <%= @lession.course_id %>
+        </p>
+        <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_lession_path(@lession) %></button>&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-warning"><%= link_to 'Back', lessions_path %></button>
+      </div>
+    </div>
+  </div>
+</div>
